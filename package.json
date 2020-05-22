@@ -1,0 +1,37 @@
+{
+  "version": "0.1.0",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es2015/index.js",
+  "typings": "dist/typings",
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "npm run clean && npm run dist",
+    "clean": "rm -rf ./dist",
+    "lint": "eslint .",
+    "dist": "npm run dist:es2015 && npm run dist:cjs",
+    "dist:es2015": "tsc --pretty --declarationDir \"dist/typings\" --declaration --declarationMap",
+    "dist:cjs": "tsc --pretty --outDir \"dist/cjs\" --module \"CommonJS\""
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.0.0",
+    "typescript": "^3.9.3"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!*.tsbuildinfo",
+    "!**/__tests__",
+    "README.md",
+    "LICENSE"
+  ],
+  "name": "tagged-template-scanner",
+  "description": "Tagged Template Scanner",
+  "license": "MIT",
+  "author": "Boris Kaul <localvoid@gmail.com> (https://github.com/localvoid)",
+  "homepage": "https://github.com/localvoid/tagged-template-scanner",
+  "bugs": "https://github.com/localvoid/tagged-template-scanner/issues",
+  "repository": "github:localvoid/tagged-template-scanner"
+}
